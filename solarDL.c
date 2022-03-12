@@ -211,7 +211,8 @@ int main(int argc, char *argv[])
 
   /* source file in char source[512] and dest file in char dest[512] */
   char str[512];
-  char str2[32];
+  char strpre[512];
+  char strpost[512];
   char pathRrdUpdate[512];
   char pathHtmlUpdate[512];
 
@@ -330,9 +331,10 @@ int main(int argc, char *argv[])
       }
       fMWhDiff = fMWh - fMWhOld;
 
-
-      sprintf(str2, ":%d:%1.3f", dl.data_new.DrehzA1, fMWhDiff );
-      strcat(str, str2);
+      sprintf(strpre, "var dl_data='");
+      strcat(strpre, str);
+      sprintf(strpost, ":%d:%1.3f';", dl.data_new.DrehzA1, fMWhDiff );
+      strcat(strpre, strpost);
 
       file = fopen( pathHtmlUpdate, "w" );
       fprintf(file, "%s\n", str);

@@ -234,7 +234,7 @@ int main(int argc, char *argv[])
       memset(pathRrdUpdate, '\0', sizeof(512));
       sprintf(pathRrdUpdate, "%s", argv[1]);
       memset(pathHtmlUpdate, '\0', sizeof(512));
-      sprintf(pathHtmlUpdate, "%s_html", argv[1]);
+      sprintf(pathHtmlUpdate, "%s.js", argv[1]);
 
       // Closing file
       fclose(file);
